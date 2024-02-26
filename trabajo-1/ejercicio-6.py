@@ -14,8 +14,8 @@ def validar_correo(correo):
 
 questions = [
     inq.Text("nombre",message="Digita tu nombre"),
-    inq.Text("edad",message="Digita tu edad", validate=lambda x: x.isnumeric() ),
-    inq.Text('correo', message="Ingrese su correo electrónico", validate=lambda _, correo: validar_correo(correo)),
+    inq.Text("edad",message="Digita tu edad", validate=lambda _,x: x.isnumeric() ),
+    inq.Text('correo', message="Ingrese su correo electrónico", validate=lambda _,correo: validar_correo(correo)),
     inq.Text("telefono",message="Por favor ingresa tu numero de telefono"),
     inq.Text("sexo",message="Ingresa tu sexo"),
 ]

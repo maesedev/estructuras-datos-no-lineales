@@ -23,10 +23,22 @@ def parse_sentense(sentense):
     return cadena_sin_puntuacion
 
 
+def traduce(sentense):
+    
+    parsed_sentense = parse_sentense(sentense)
+    
+    traduced = ""
+    for word in parsed_sentense.split(" "):
+        if word.lower() in traducciones: 
+            traduced += traducciones[word.lower()] + " " 
+        else:
+            traduced += word + " " 
+            
+    return traduced
+            
+    
 
-
-
-
+    
 ##################################################################
 #################### registro de palabras ########################
 ##################################################################
@@ -76,18 +88,7 @@ while more_traductions:
         inq.Text("sentense",message="Ingresa la frase a traducir"),
     ]
     sentense = inq.prompt(questions)["sentense"]
-    
-    parsed_sentense = parse_sentense(sentense)
-    
-    traduced = ""
-    for word in parsed_sentense.split(" "):
-        if word.lower() in traducciones: 
-            traduced += traducciones[word.lower()] + " " 
-        else:
-            traduced += word + " " 
-            
-    
-    
+    traduced = traduce(sentense)
     print(f"La frase :\n\"{sentense}\" \n\tES --> EN\n \"{traduced}\"")
     more_traductions = bool(inq.prompt([
         inq.Confirm( "continuar" , message="¿Quieres traducir otra frase?" ,default="y")

@@ -1,9 +1,6 @@
 import inquirer
 
 ## {<numero factura 1> : Valor , <numero factura 2> : Valor, ... , <numero factura n> : Valor , }
-
-
-
 facturas = {}
 
 def pagar_factura(ID):

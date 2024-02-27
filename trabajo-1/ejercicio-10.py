@@ -2,7 +2,6 @@ import inquirer as inq
 import re
 # {<user_nif> : { data } }
 
-
 users = {}
 
 def add_client(NIF,name, address, phone, email, preference):
